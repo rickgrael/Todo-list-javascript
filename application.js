@@ -16,6 +16,10 @@ function addTodo(event) {
         alert('Coloque um todo válido');
         return;
     }
+    else if ( isRepeated(todoInput.value)){
+        alert("Já existe um todo igual, coloque um diferente.")
+        return
+    }
     //Creating div
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
@@ -44,6 +48,16 @@ function addTodo(event) {
     todoInput.value = "";
 }
 
+function isRepeated(todo){
+    let list = JSON.parse(localStorage.getItem("todos"));
+    let repeated;
+    list.forEach(item=>{
+        if (item === todo ){
+            repeated=true;
+        }
+    })
+    return repeated;
+}
 function Done(event) {
     let father = this.parentNode;
     father.classList.toggle("completed");
@@ -62,10 +76,11 @@ function deleteItem(event) {
     let father = this.parentNode;
     let grandFather = father.parentNode;
     father.classList.add("removed");
-    removeTodo(father);
+    console.log(this.parentNode)
     father.addEventListener('transitionend', () => {
         grandFather.removeChild(father);
     })
+    removeTodo(father);
 
 }
 

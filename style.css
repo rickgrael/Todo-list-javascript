@@ -22,7 +22,7 @@ form{
 	position: relative;
 }
 form input{
-	color: rgb(65, 65, 65);
+	color: rgb(247, 126, 27);
 }
 form input,button{
 	padding: 0.5rem;
@@ -48,7 +48,7 @@ form button:hover{
 	align-items: center;
 }
 .todo-list{
-	min-width: 30%;
+	min-width: 40%;
 	list-style: none;
 }
 .todo{
@@ -61,9 +61,7 @@ form button:hover{
 	align-items: center;
 	transition: all 0.4s ease;
 }
-.todo:hover{
-	transform: translateX(5px);
-}
+
 .todo li{
 	flex: 1;
 }
